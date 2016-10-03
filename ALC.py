@@ -16,7 +16,6 @@ def problem_1(input):
             multiples[count * 3] = count * 3
             sum += count * 3
         count += 1
-    print("The sum is {}.".format(sum))
     return sum;
      
 def problem_2(input):
@@ -47,7 +46,6 @@ def problem_2(input):
                 returned_string += string[1:] + string[0] + "ay "
             else:
                 returned_string += string + "ay "
-    print(returned_string)
     return returned_string
     
 def main():
@@ -62,10 +60,10 @@ def main():
             except ValueError:
                 print("Not a valid number.")
                 raise
-            return problem_1(input_1)
+            print("The sum is {}.".format(problem_1(input_1)))
         if int(input_problem) == 2:
             input_2 = input("Choose a string to translate to Pig Latin.\n")
-            return problem_2(input_2)
+            print(problem_2(input_2))
     except ValueError:
         print("Invalid input. Restarting.\n")
         main()
