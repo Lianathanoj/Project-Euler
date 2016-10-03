@@ -1,21 +1,10 @@
 def problem_1(input):
-    multiples = {}
-    count3 = 3;
-    count5 = 5;
-    sum = 0;
-    # while count3 < input:
-        # multiples[count3] = count3;
-        # sum += count3;
-        # count3 += 3
-    # while count5 < input:        # increment this at the same time as count3, e.g. count3 + 3, count5 + 5, still check for dictionary though
-        # if count5 not in multiples:    
-            # multiples[count5] = count5;
-            # sum += count5;
-        # count5 += 5
-    # print("The sum is {}.".format(sum))
-    # return sum;
+    """Assumptions:
     
-    # More efficient, only need one loop but more conditionals
+    1) The inputted value is greater than 0 (this is still checked for in the main method regardless).
+    2) The inputted value is a number and not a string (this is still checked for).
+    
+    """
     multiples = {}
     sum = 0
     count = 1
@@ -29,20 +18,23 @@ def problem_1(input):
         count += 1
     print("The sum is {}.".format(sum))
     return sum;
+     
+def problem_2(input):
+    """Assumptions: 
     
-"""Assumptions: 
     1) The string does not contain a singular word with both letters and numbers, e.g. ab478c.
     2) Punctuation is syntactically correct.
-    3) Punctuation only includes semicolons, colons, commas, periods, exclamation marks, and question marks."""    
-def problem_2(input):
+    3) Punctuation only includes semicolons, colons, commas, periods, exclamation marks, and question marks.
+    
+    """
     returned_string = ""
     punctuation_string = ".,!;?:"
-    split_string = input.split() # " ", ";, !, ?, ., :"
+    split_string = input.split()
     for string in split_string:
         try:
             int(string)
             returned_string += string + " "
-        except: # check the last character in each word, if that character in predefined string of punctuation symbols.
+        except:
             if len(string) == 1 and string in punctuation_string:
                 returned_string += string + " "
             elif string[-1] in punctuation_string:
@@ -52,8 +44,8 @@ def problem_2(input):
                 except:    
                     returned_string += string[1:-1] + string[0] + "ay" + string[-1] + " "
             elif len(string) > 1:
-                returned_string += string[1:] + string[0] + "ay " # if string not punctuation or numbers, piglatinify and add to returned_string, otherwise just add.
-            else: # if len(string) == 1:
+                returned_string += string[1:] + string[0] + "ay "
+            else:
                 returned_string += string + "ay "
     print(returned_string)
     return returned_string
